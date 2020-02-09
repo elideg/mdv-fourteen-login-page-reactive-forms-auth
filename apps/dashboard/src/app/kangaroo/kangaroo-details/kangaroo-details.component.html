@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="currentKangaroo.id; else elseCreateNew"><h1>{{ originalBreed }}</h1></mat-card-title>
+    <ng-template #elseCreateNew><h1>Create a New Kangaroo</h1></ng-template>
+  </mat-card-header>
+  <form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="saveForm(formDirective)">
+    <mat-card-content>
+
+      <mat-form-field class="full-width d-flex">
+        <input matInput placeholder="Breed" type="text" name="breed" formControlName="breed">
+        <mat-error *ngIf="form.get('breed').hasError('required')">Required Field</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width d-flex">
+      <textarea matInput placeholder="Location" type="text" name="location" formControlName="location"></textarea>
+      <mat-error *ngIf="form.get('location').hasError('required')">Required Field</mat-error>
+      </mat-form-field>
+
+      <section class="full-width">
+        <h3>{{currentKangaroo.jumpHeight}} Jump Height</h3>
+        <mat-slider class="full-width" matInput thumbLabel min="0" max="100" formControlName="jumpHeight">Jump Height</mat-slider>
+      </section>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button color="accent" [disabled]="form.invalid">{{ currentKangaroo.id ? 'Update' : 'Create' }}</button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

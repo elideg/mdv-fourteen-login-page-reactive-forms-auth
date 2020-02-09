@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center mt-3">
+  <button mat-button [routerLink]="['/kangaroos']">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <mat-card class="col-6 custom-background" *ngIf="kangaroo$ | async as kangaroo">
+    <mat-card-header class="align-self-center">
+      <mat-card-title>
+        <h3 mat-line>Kangaroo Id</h3>
+        <p>{{kangaroo.id}}</p>
+        <h3 mat-line>Kangaroo Breed</h3>
+        <p>{{kangaroo.breed}}</p>
+        <h3 mat-line>Kangaroo Location</h3>
+        <p>{{kangaroo.location}}</p>
+        <h3 mat-line>Kangaroo Jump Height</h3>
+        <p>{{kangaroo.jumpHeight}}</p>
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>

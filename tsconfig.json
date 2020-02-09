@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@mdv-fourteen/material": ["libs/material/src/index.ts"],
+      "@mdv-fourteen/core-data": ["libs/core-data/src/index.ts"],
+      "@mdv-fourteen/core-state": ["libs/core-state/src/index.ts"],
+      "@mdv-fourteen/ui-lib": ["libs/ui-lib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

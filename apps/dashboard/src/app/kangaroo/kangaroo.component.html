@@ -1,0 +1,16 @@
+<div class="container d-flex mt-3">
+  <div class="col-6">
+    <mdv-fourteen-kangaroo-list [kangaroos]="kangaroo$ | async"
+                          (selected)="selectKangaroo($event)"
+                          (deleted)="deleteKangaroo($event)">
+    </mdv-fourteen-kangaroo-list>
+  </div>
+
+  <div class="col-6">
+    <mdv-fourteen-kangaroo-details [kangaroo]="selectedKangaroo$ | async"
+                              [form]="form"
+                              (saved)="saveKangaroo($event)"
+                              (cancelled)="cancel()">
+    </mdv-fourteen-kangaroo-details>
+  </div>
+</div>
